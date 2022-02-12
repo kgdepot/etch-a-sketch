@@ -1,18 +1,38 @@
+html {
+    min-height: 100vh;
+}
 body {
     background-color: green;
+    color: var(--primary-dark);
+    font-family: 'Roboto', sans-serif;
 }
-#sketchContainer {
-}
+
+#sketchContainer {}
+
 .gridDiv {
     /* flex: 1; */
     border: 0.1px solid grey;
     font-size: 0.8rem;
 }
+
 .gridDiv:hover {
     /* color: white;
     background: black; */
 }
+
 .hover {
     color: white;
-    background: black;    
+    background: black;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;s
+}
+.fa-github {
+    color: var(--primary-dark);
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
 }
