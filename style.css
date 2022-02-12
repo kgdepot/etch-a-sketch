@@ -1,3 +1,18 @@
 body {
-    background-color: aqua;
+    background-color: green;
+}
+#sketchContainer {
+}
+.gridDiv {
+    /* flex: 1; */
+    border: 0.1px solid grey;
+    font-size: 0.8rem;
+}
+.gridDiv:hover {
+    /* color: white;
+    background: black; */
+}
+.hover {
+    color: white;
+    background: black;    
 }
