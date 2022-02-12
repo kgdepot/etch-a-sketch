@@ -1,19 +1,20 @@
-console.log('adf');
-
 const sketchContainer = document.querySelector('#sketchContainer');
 
 let gridSize = 16; // 16 x 16 grid;
 
-//i = row
-for (let i = 0; i < gridSize; i++) {
-    //j = column
+
+for (let i = 0; i < gridSize; i++) {  //i = row
     const rowContainer = document.createElement('div');
     rowContainer.className = 'rowContainer';
-    rowContainer.setAttribute('style','display:flex;');
+    rowContainer.setAttribute('style','display: flex;');
     
-    for (let j = 0; j < gridSize; j++) {
+    for (let j = 0; j < gridSize; j++) {   //j = column
         const div = document.createElement('div');
-        div.textContent = `(${j})`;
+        div.className = 'gridDiv';
+        div.textContent = `(${i},${j})`;
+        div.style.backgroundColor = 'blue';
+        div.setAttribute('style', 'width: 50px; height: 50px;');
+
         rowContainer.appendChild(div);
         //create div for each j => 16 div
     }
