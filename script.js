@@ -29,6 +29,6 @@ function setColor() {
     this.style.backgroundColor = "black";
 }
 function setYear() {
-    document.getElementById("date").textContent = new Date().getFullYear();
+    document.querySelector(".date").textContent = new Date().getFullYear();
 }
 setYear();
