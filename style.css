@@ -26,11 +26,10 @@ body {
 }
 footer {
     text-align: center;
-    padding: 20px 0;s
+    padding: 20px 0;
 }
 .fa-github {
-    color: var(--primary-dark);
-    transition: transform 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .fa-github:hover {

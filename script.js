@@ -2,10 +2,7 @@ const sketchContainer = document.querySelector('#sketchContainer');
 let gridSize = 16; // 16 x 16 grid;
 
 //game
-
-
-
-for (let i = 0; i < gridSize; i++) {  //i = row
+for (let i = 0; i < gridSize; i++) {    //i = row
     const rowContainer = document.createElement('div');
     rowContainer.className = 'rowContainer';
     rowContainer.setAttribute('style', 'display: flex;');
