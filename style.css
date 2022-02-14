@@ -1,3 +1,4 @@
+
 h1 {
     margin: 0 0 0 0;
     padding: 15px;
@@ -15,31 +16,30 @@ body {
     background-color: green;
     font-family: 'Roboto', sans-serif;
 }
-
+ 
 main {
     display: flex;
     justify-content: space-around;
-    height: 75%;
+    min-height: fit-content;
     background: grey;
 }
 
 #sketchContainer {
     background-color: silver;
-    height: 33em;
-    width: 33em;
+    height: 608px;
+    width: 608px;
 }
 
 #sketchOptions {
     background-color: silver;
-
-    height: 33em;
+    height: 608px;
     width: 12em;
 }
 
 .gridDiv {
-    /* flex: 1; */
-    border: 0.1px solid grey;
-    font-size: 0.8rem;
+
+    /* border: 0.1px solid rgb(221, 201, 201); */
+    /* font-size: 0.8rem; */
 }
 
 .gridDiv:hover {
