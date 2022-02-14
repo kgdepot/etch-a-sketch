@@ -1,6 +1,10 @@
 const sketchContainer = document.querySelector('#sketchContainer');
 
-let gridSize = 16; // 16 x 16 grid;
+let gridSize = 16;
+do {
+    gridSize = prompt('Pen size (1 - 100) : ', 16); // 16 x 16 grid;
+} while (isNaN(gridSize) || gridSize > 100 || gridSize == '')
+
 
 //game
 for (let i = 0; i < gridSize; i++) {    //i = row
