@@ -1,9 +1,6 @@
 const sketchContainer = document.querySelector('#sketchContainer');
 
-let gridSize = 16;
-do {
-    gridSize = prompt('Pen size (1 - 100) : ', 16); // 16 x 16 grid;
-} while (isNaN(gridSize) || gridSize > 100 || gridSize == '')
+let gridSize = getGridSize();
 
 
 //game
@@ -24,6 +21,14 @@ function setRowSquare(div) {
 
     div.style.width = `${sketchContainer.clientWidth / gridSize}px`;
     div.style.height = `${sketchContainer.clientHeight / gridSize}px`;
+}
+
+function getGridSize() {
+    let gridSize = 16;
+    do {
+        gridSize = prompt('Pen size (1 - 100) : ', 16); // 16 x 16 grid;
+    } while (isNaN(gridSize) || gridSize > 100 || gridSize == '')
+    return gridSize;
 }
 
 function getDomRow() {

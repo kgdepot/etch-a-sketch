@@ -34,17 +34,8 @@ main {
     background-color: silver;
     height: 608px;
     width: 12em;
-}
-
-.gridDiv {
-
-    /* border: 0.1px solid rgb(221, 201, 201); */
-    /* font-size: 0.8rem; */
-}
-
-.gridDiv:hover {
-    /* color: white;
-    background: black; */
+    display: flex;
+    flex-direction: column;
 }
 
 .hover {
