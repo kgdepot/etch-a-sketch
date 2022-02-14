@@ -17,9 +17,6 @@ for (let i = 0; i < gridSize; i++) {    //i = row
 function setRowSquare(div) {
     div.className = 'gridDiv';
     div.addEventListener('mouseover', setColor);
-    div.style.backgroundColor = 'blue';
-
-    // console.log(sketchContainer.clientWidth); 
 
     div.style.width = `${sketchContainer.clientWidth / gridSize}px`;
     div.style.height = `${sketchContainer.clientHeight / gridSize}px`;
@@ -33,7 +30,6 @@ function getDomRow() {
 }
 
 function setColor() {
-    // console.log(this);
     this.style.backgroundColor = "lightblue";
 }
 function setYear() {
