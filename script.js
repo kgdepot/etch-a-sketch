@@ -7,6 +7,8 @@ const psyStylus = document.querySelector('#psyStylus');
 let gridSize = 16;
 // let gridSize = promptGridSize();
 setGrid(gridSize);
+const gridSquares = document.querySelectorAll(".gridDiv");
+
 
 eraser.addEventListener('click',()=>{
 
@@ -14,7 +16,6 @@ eraser.addEventListener('click',()=>{
     // console.log('eraser clicked');
 });
 clear.addEventListener('click',()=>{
-    const gridSquares = document.querySelectorAll(".gridDiv");
     gridSquares.forEach(div => div.style.backgroundColor = 'white');
 });
 newSketch.addEventListener('click',()=>{

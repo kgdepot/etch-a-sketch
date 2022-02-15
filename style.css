@@ -24,7 +24,7 @@ main {
     background: grey;
 }
 #sketchOptions {
-    background-color: silver;
+    background-color: white;
     height: 608px;
     width: 12em;
     display: flex;
@@ -32,14 +32,10 @@ main {
 }
 
 #sketchContainer {
-    background-color: silver;
+    background-color: white;
     height: 608px;
     width: 608px;
 }
-.eraseSketch {
-    
-}
-
 
 footer {
     display: flex;
