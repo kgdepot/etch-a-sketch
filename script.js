@@ -3,6 +3,7 @@ const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const newSketch = document.querySelector('#newSketch');
 const psyStylus = document.querySelector('#psyStylus');
+const stylus = document.querySelector('#stylus');
 let stylusColor = 'black';
 let gridSize = 0;
 let gridSquares = document.createElement('div');
@@ -11,6 +12,9 @@ gridSize = promptGridSize();
 setGrid(gridSize);
 gridSquares = document.querySelectorAll(".gridDiv");
 
+stylus.addEventListener('click', () => {
+    stylusColor = 'black';
+});
 eraser.addEventListener('click',() => {
     stylusColor = 'white';
     gridSquares.forEach(div => div.addEventListener("mouseover", setColor));
