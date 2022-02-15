@@ -9,10 +9,13 @@ let gridSize = 16;
 setGrid(gridSize);
 
 eraser.addEventListener('click',()=>{
-    console.log('eraser clicked');
+
+
+    // console.log('eraser clicked');
 });
 clear.addEventListener('click',()=>{
-    console.log('clear clicked');
+    const gridSquares = document.querySelectorAll(".gridDiv");
+    gridSquares.forEach(div => div.style.backgroundColor = 'white');
 });
 newSketch.addEventListener('click',()=>{
     console.log('new SKetch clicked');
@@ -36,10 +39,11 @@ function setGrid(gridSize) {
 }
 function setRowSquare(div) {
     div.className = 'gridDiv';
-    div.addEventListener('mouseover', setColor);
-
     div.style.width = `${sketchContainer.clientWidth / gridSize}px`;
     div.style.height = `${sketchContainer.clientHeight / gridSize}px`;
+    
+    div.addEventListener("mouseover", setColor);
+    
 }
 function promptGridSize() {
     let gridSize = 16;
@@ -55,7 +59,7 @@ function setRow() {
     return rowContainer;
 }
 function setColor() {
-    this.style.backgroundColor = "lightblue";
+    this.style.background = "lightblue";
 }
 function setYear() {
     document.querySelector(".date").textContent = new Date().getFullYear();
