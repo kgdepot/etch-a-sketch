@@ -23,13 +23,6 @@ main {
     min-height: fit-content;
     background: grey;
 }
-
-#sketchContainer {
-    background-color: silver;
-    height: 608px;
-    width: 608px;
-}
-
 #sketchOptions {
     background-color: silver;
     height: 608px;
@@ -38,10 +31,13 @@ main {
     flex-direction: column;
 }
 
-.hover {
-    color: white;
-    background: black;
+#sketchContainer {
+    background-color: silver;
+    height: 608px;
+    width: 608px;
 }
+
+
 
 footer {
     display: flex;

@@ -5,13 +5,27 @@ const newSketch = document.querySelector('#newSketch');
 const psyStylus = document.querySelector('#psyStylus');
 
 let gridSize = 16;
-// let gridSize = getGridSize();
+// let gridSize = promptGridSize();
 setGrid(gridSize);
 
-//sketchPad
+eraser.addEventListener('click',()=>{
+    console.log('eraser clicked');
+});
+clear.addEventListener('click',()=>{
+    console.log('clear clicked');
+});
+newSketch.addEventListener('click',()=>{
+    console.log('new SKetch clicked');
+});
+psyStylus.addEventListener('click',()=>{
+    console.log('psyStylus clicked');
+});
+
+
+
 function setGrid(gridSize) {
     for (let i = 0; i < gridSize; i++) {    //i = row
-        const rowContainer = getDomRow();
+        const rowContainer = setRow();
         for (let j = 0; j < gridSize; j++) {   //j = column
             const div = document.createElement('div');
             setRowSquare(div);
@@ -20,11 +34,6 @@ function setGrid(gridSize) {
         sketchContainer.appendChild(rowContainer);
     }
 }
-
-
-
-
-
 function setRowSquare(div) {
     div.className = 'gridDiv';
     div.addEventListener('mouseover', setColor);
@@ -32,14 +41,14 @@ function setRowSquare(div) {
     div.style.width = `${sketchContainer.clientWidth / gridSize}px`;
     div.style.height = `${sketchContainer.clientHeight / gridSize}px`;
 }
-function getGridSize() {
+function promptGridSize() {
     let gridSize = 16;
     do {
         gridSize = prompt('Pen size (1 - 100) : ', 16); // 16 x 16 grid;
     } while (isNaN(gridSize) || gridSize > 100 || gridSize == '')
     return gridSize;
 }
-function getDomRow() {
+function setRow() {
     const rowContainer = document.createElement('div');
     rowContainer.className = 'rowContainer';
     rowContainer.setAttribute('style', 'display: flex;');
