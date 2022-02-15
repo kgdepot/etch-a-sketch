@@ -3,17 +3,16 @@ const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const newSketch = document.querySelector('#newSketch');
 const psyStylus = document.querySelector('#psyStylus');
+let stylusColor = 'black';
 
 let gridSize = 16;
 // let gridSize = promptGridSize();
 setGrid(gridSize);
 const gridSquares = document.querySelectorAll(".gridDiv");
 
-
-eraser.addEventListener('click',()=>{
-
-
-    // console.log('eraser clicked');
+eraser.addEventListener('click',() => {
+    stylusColor = 'white';
+    gridSquares.forEach(div => div.addEventListener("mouseover", setColor));
 });
 clear.addEventListener('click',()=>{
     gridSquares.forEach(div => div.style.backgroundColor = 'white');
@@ -24,7 +23,6 @@ newSketch.addEventListener('click',()=>{
 psyStylus.addEventListener('click',()=>{
     console.log('psyStylus clicked');
 });
-
 
 
 function setGrid(gridSize) {
@@ -59,8 +57,9 @@ function setRow() {
     rowContainer.setAttribute('style', 'display: flex;');
     return rowContainer;
 }
+
 function setColor() {
-    this.style.background = "lightblue";
+    this.style.background = stylusColor;
 }
 function setYear() {
     document.querySelector(".date").textContent = new Date().getFullYear();
