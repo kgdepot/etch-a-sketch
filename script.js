@@ -4,8 +4,8 @@ const clear = document.querySelector('#clear');
 const newSketch = document.querySelector('#newSketch');
 const psyStylus = document.querySelector('#psyStylus');
 let stylusColor = 'black';
-let gridSize = 16;
-let gridSquares;
+let gridSize = 0;
+let gridSquares = document.createElement('div');
 
 gridSize = promptGridSize();
 setGrid(gridSize);
@@ -19,11 +19,11 @@ clear.addEventListener('click',()=>{
     gridSquares.forEach(div => div.style.backgroundColor = 'white');
 });
 newSketch.addEventListener('click', () =>{
+    removeAllChildNodes(sketchContainer);
     gridSize = promptGridSize();
     setGrid(gridSize);
-    // gridSquares.forEach(div => div.style.backgroundColor = 'white');
+    stylusColor = 'black';
     gridSquares = document.querySelectorAll(".gridDiv");
-
 
     console.log('new Sketch clicked');
 });
@@ -31,8 +31,12 @@ psyStylus.addEventListener('click',()=>{
     console.log('psyStylus clicked');
 });
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 function setGrid(gridSize) {
-    // const rowContainer;
     for (let i = 0; i < gridSize; i++) {    //i = row
         const row = setRow();
         for (let j = 0; j < gridSize; j++) {   //j = column
