@@ -12,8 +12,8 @@ if (gridSize) {
     setGrid(gridSize);
     gridSquares = document.querySelectorAll(".gridDiv");
     stylusColor('black');
-    setButtonEvents();
 }
+setButtonEvents();
 
 function setButtonEvents() {
     stylus.addEventListener('click', () => {
@@ -23,7 +23,9 @@ function setButtonEvents() {
         stylusColor('white');
     });
     clear.addEventListener('click',()=>{
-        gridSquares.forEach(div => div.style.backgroundColor = 'white');
+        if (gridSize) {
+            gridSquares.forEach(div => div.style.backgroundColor = 'white');
+        }
     });
     newSketch.addEventListener('click', () =>{
         const tempGridSize = promptGridSize(); 
@@ -36,7 +38,8 @@ function setButtonEvents() {
         } 
     });
     psyStylus.addEventListener('click',()=>{
-        console.log('psyStylus clicked');
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        sketchContainer.addEventListener('mouseover', (e) => e.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16) );
     });
 }
 function stylusColor(color) {
@@ -66,7 +69,7 @@ function setRowSquare(div) {
 function promptGridSize() {
     let gridSize = 16;
     do {
-        gridSize = prompt('Pen size (1 - 100) : ', 16); // 16 x 16 grid;
+        gridSize = prompt('Grid size (1 - 100) : ', 16); // 16 x 16 grid;
     } while (isNaN(gridSize) || gridSize > 100 || gridSize == '')
     return gridSize;
 }
