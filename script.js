@@ -8,29 +8,37 @@ let gridSize = 0;
 let gridSquares = document.createElement('div');
 
 gridSize = promptGridSize();
-setGrid(gridSize);
-stylusColor('black');
-gridSquares = document.querySelectorAll(".gridDiv");
-
-stylus.addEventListener('click', () => {
-    stylusColor('black');
-});
-eraser.addEventListener('click',() => {
-    stylusColor('white');
-});
-clear.addEventListener('click',()=>{
-    gridSquares.forEach(div => div.style.backgroundColor = 'white');
-});
-newSketch.addEventListener('click', () =>{
-    removeAllChildNodes(sketchContainer);
-    gridSize = promptGridSize();
+if (gridSize) {
     setGrid(gridSize);
     gridSquares = document.querySelectorAll(".gridDiv");
     stylusColor('black');
-});
-psyStylus.addEventListener('click',()=>{
-    console.log('psyStylus clicked');
-});
+    setButtonEvents();
+}
+
+function setButtonEvents() {
+    stylus.addEventListener('click', () => {
+        stylusColor('black');
+    });
+    eraser.addEventListener('click',() => {
+        stylusColor('white');
+    });
+    clear.addEventListener('click',()=>{
+        gridSquares.forEach(div => div.style.backgroundColor = 'white');
+    });
+    newSketch.addEventListener('click', () =>{
+        const tempGridSize = promptGridSize(); 
+        if (tempGridSize) {
+            removeAllChildNodes(sketchContainer);
+            gridSize = tempGridSize;
+            setGrid(gridSize);
+            gridSquares = document.querySelectorAll(".gridDiv");
+            stylusColor('black');
+        } 
+    });
+    psyStylus.addEventListener('click',()=>{
+        console.log('psyStylus clicked');
+    });
+}
 function stylusColor(color) {
     sketchContainer.addEventListener('mouseover', (e) => e.target.style.backgroundColor = color);
 }
