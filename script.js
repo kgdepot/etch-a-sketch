@@ -4,20 +4,19 @@ const clear = document.querySelector('#clear');
 const newSketch = document.querySelector('#newSketch');
 const psyStylus = document.querySelector('#psyStylus');
 const stylus = document.querySelector('#stylus');
-let stylusColor = 'black';
 let gridSize = 0;
 let gridSquares = document.createElement('div');
 
 gridSize = promptGridSize();
 setGrid(gridSize);
+stylusColor('black');
 gridSquares = document.querySelectorAll(".gridDiv");
 
 stylus.addEventListener('click', () => {
-    stylusColor = 'black';
+    stylusColor('black');
 });
 eraser.addEventListener('click',() => {
-    stylusColor = 'white';
-    gridSquares.forEach(div => div.addEventListener("mouseover", setColor));
+    stylusColor('white');
 });
 clear.addEventListener('click',()=>{
     gridSquares.forEach(div => div.style.backgroundColor = 'white');
@@ -26,15 +25,15 @@ newSketch.addEventListener('click', () =>{
     removeAllChildNodes(sketchContainer);
     gridSize = promptGridSize();
     setGrid(gridSize);
-    stylusColor = 'black';
     gridSquares = document.querySelectorAll(".gridDiv");
-
-    console.log('new Sketch clicked');
+    stylusColor('black');
 });
 psyStylus.addEventListener('click',()=>{
     console.log('psyStylus clicked');
 });
-
+function stylusColor(color) {
+    sketchContainer.addEventListener('mouseover', (e) => e.target.style.backgroundColor = color);
+}
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -55,8 +54,6 @@ function setRowSquare(div) {
     div.className = 'gridDiv';
     div.style.width = `${sketchContainer.clientWidth / gridSize}px`;
     div.style.height = `${sketchContainer.clientHeight / gridSize}px`;
-    
-    div.addEventListener("mouseover", setColor);
 }
 function promptGridSize() {
     let gridSize = 16;
@@ -70,10 +67,6 @@ function setRow() {
     rowContainer.className = 'rowContainer';
     rowContainer.setAttribute('style', 'display: flex;');
     return rowContainer;
-}
-
-function setColor() {
-    this.style.background = stylusColor;
 }
 function setYear() {
     document.querySelector(".date").textContent = new Date().getFullYear();
